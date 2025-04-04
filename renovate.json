@@ -5,7 +5,12 @@
   ],
   "packageRules": [
     {
-      "description": "Automerge all updates",
+      "description": "Automerge updates",
+      "matchUpdateTypes": [
+        "major",
+        "minor",
+        "patch"
+      ],
       "automerge": true
     }
   ]
