@@ -1,0 +1,14 @@
+= Quarkus `Produces` Demo
+
+Shows how to produce not only `json` but also `xml` and `yaml` responses in a Quarkus application.
+
+It requires that `@Produces` annotation, although Quarkus should be able to find out what `MessageBodyWriter`s are available at build time, und use that automatically.
+
+Start with `mvn compile quarkus:dev` and hit `d` to open the dev-ui.
+Then go to the Smallrye OpenAPI "Swagger UI" to see the various available content types:
+
+* `application/json` is most commonly used nowadays.
+* `application/xml` is provided by the `quarkus-rest-jaxb` dependency; note the `ProductList` workaround for another https://github.com/quarkusio/quarkus/issues/33865[issue].
+* `application/yaml` is provided by `YamlMessageBodyAdapter` class.
+
+Then uncomment the `@Produces` annotation in the `Products` class and reload Swagger; now the only content type left is `application/json`.
